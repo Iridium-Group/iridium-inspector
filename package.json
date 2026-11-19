@@ -1,0 +1,65 @@
+{
+  "name": "@iridium-group/inspector",
+  "version": "0.1.0",
+  "description": "Command-line tool that checks Iridium configuration files and shows how a configuration treats a given URL.",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "author": "Iridium Group contributors",
+  "homepage": "https://github.com/Iridium-Group/iridium-inspector#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iridium-Group/iridium-inspector.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Iridium-Group/iridium-inspector/issues"
+  },
+  "keywords": [
+    "iridium",
+    "inspector",
+    "cli",
+    "config",
+    "proxy"
+  ],
+  "engines": {
+    "node": ">=22.18"
+  },
+  "bin": {
+    "iridium-inspect": "./bin/iridium-inspect.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "bin",
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --test-timeout=30000 'test/**/*.test.ts'",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@iridium-group/config": "github:Iridium-Group/iridium-config",
+    "@iridium-group/utils": "github:Iridium-Group/iridium-utils"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "prettier": "^3.10.1",
+    "typescript": "~5.9.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
